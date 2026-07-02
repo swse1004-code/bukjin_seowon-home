@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>북진서원 | 北辰書院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6efe2;
+  --paper:#fffaf0;
+  --ink:#241c12;
+  --brown:#5a4630;
+  --gold:#b89456;
+  --line:#d8c6a8;
+  --deep:#2d2417;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#fff8ea 0%,#efe1c8 100%);
+}
+a{text-decoration:none;color:inherit}
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 36px;
+  background:rgba(255,250,240,.94);
+  border-bottom:1px solid var(--line);
+}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:48px;height:48px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:grid;place-items:center;
+  font-family:'Noto Serif KR',serif;
+  color:#7b5a25;
+}
+.logo-text strong{
+  display:block;
+  font-family:'Noto Serif KR',serif;
+  font-size:1.45rem;
+}
+.logo-text span{font-size:.78rem;color:#7a6a55}
+.nav{display:flex;gap:24px;font-size:.92rem;font-weight:600;color:#4e4334}
+.nav a:hover{color:#9a7132}
+.hero{
+  min-height:430px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:70px 20px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.95) 0 4px,transparent 5px),
+    radial-gradient(circle at 50% 18%,rgba(184,148,86,.38),transparent 90px),
+    linear-gradient(135deg,#f8edda,#ead6b6);
+  border-bottom:1px solid var(--line);
+}
+.hero:before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(25deg,transparent 0 45%,rgba(120,88,45,.12) 45% 46%,transparent 46%),
+    radial-gradient(circle at 20% 75%,rgba(91,69,43,.13),transparent 170px),
+    radial-gradient(circle at 80% 72%,rgba(91,69,43,.12),transparent 180px);
+}
+.hero-inner{position:relative;z-index:2}
+.hero-kicker{
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid var(--gold);
+  border-radius:999px;
+  background:rgba(255,250,240,.6);
+  color:#7a5a25;
+  font-size:.86rem;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(3rem,7vw,5.8rem);
+  letter-spacing:.12em;
+  color:#2d2417;
+}
+.hero .hanja{
+  font-family:'Noto Serif KR',serif;
+  color:#9a7132;
+  font-size:1.2rem;
+  letter-spacing:.45em;
+  margin:8px 0 18px;
+}
+.hero p{
+  max-width:640px;
+  margin:auto;
+  line-height:1.8;
+  color:#4e4334;
+}
+.hero-buttons{
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:999px;
+  background:var(--deep);
+  color:#fff4dc;
+  font-weight:700;
+}
+.btn.sub{
+  background:transparent;
+  color:var(--deep);
+  border:1px solid var(--gold);
+}
+.wrap{
+  max-width:1180px;
+  margin:0 auto;
+  padding:52px 22px;
+}
+.section-title{
+  font-family:'Noto Serif KR',serif;
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+.section-desc{
+  color:#655848;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.card{
+  background:rgba(255,250,240,.86);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  min-height:160px;
+  box-shadow:0 10px 24px rgba(58,42,20,.06);
+  transition:.2s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+}
+.card .icon{
+  font-size:2rem;
+  margin-bottom:12px;
+}
+.card h3{
+  font-family:'Noto Serif KR',serif;
+  font-size:1.18rem;
+  margin-bottom:10px;
+}
+.card p{
+  font-size:.92rem;
+  line-height:1.65;
+  color:#5b4e3f;
+}
+.card .link{
+  display:inline-block;
+  margin-top:14px;
+  color:#8b652b;
+  font-weight:700;
+  border-bottom:1px solid var(--gold);
+}
+.layout-3{
+  display:grid;
+  grid-template-columns:1.2fr .9fr .9fr;
+  gap:16px;
+  margin-top:28px;
+}
+.panel{
+  background:rgba(255,250,240,.78);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+.panel h3{
+  font-family:'Noto Serif KR',serif;
+  margin-bottom:16px;
+}
+.list-item{
+  display:flex;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px dashed rgba(168,138,91,.4);
+}
+.list-item:last-child{border-bottom:0}
+.badge{
+  width:34px;height:34px;border-radius:8px;
+  background:#ead9bb;
+  display:grid;place-items:center;
+  flex:0 0 auto;
+}
+.item-title{font-weight:700}
+.item-desc{font-size:.86rem;color:#6b5c49;margin-top:3px;line-height:1.5}
+.footer{
+  background:linear-gradient(90deg,#2a2114,#3b2f1d,#221a10);
+  color:#ead7b8;
+  padding:34px 22px;
+  text-align:center;
+  line-height:1.8;
+}
+.footer strong{
+  font-family:'Noto Serif KR',serif;
+  font-size:1.25rem;
+}
+@media(max-width:900px){
+  .header{padding:0 18px}
+  .nav{display:none}
+  .grid-4,.layout-3{grid-template-columns:1fr}
+  .hero{min-height:380px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo-wrap">
+    <div class="logo-mark">✦</div>
+    <div class="logo-text">
+      <strong>북진서원</strong>
+      <span>北辰書院</span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="#tools">오늘의 도구</a>
+    <a href="#myeongli">명리</a>
+    <a href="#iching">주역</a>
+    <a href="#tarot">타로</a>
+    <a href="#notes">공부노트</a>
+    <a href="#project">프로젝트</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Digital Academy of Myeongli · I Ching · Tarot</div>
+    <h1>북진서원</h1>
+    <div class="hanja">北辰書院</div>
+    <p>배움과 지식으로 소통하는 공간. 명리 · 주역 · 타로를 공부하고 기록하는 디지털 서원입니다.</p>
+    <div class="hero-buttons">
+      <a class="btn" href="#tools">오늘의 도구 보기</a>
+      <a class="btn sub" href="#project">프로젝트 보기</a>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section id="tools">
+    <h2 class="section-title">오늘의 도구</h2>
+    <p class="section-desc">완성된 앱부터 먼저 연결하고, 이후 북진아이칭·타로저널·레노먼드를 차례로 확장합니다.</p>
+
+    <div class="grid-4">
+      <a class="card" href="#" id="iching">
+        <div class="icon">☯</div>
+        <h3>북진아이칭</h3>
+        <p>오늘의 일진, 척전법, 매화역수, 하락이수를 담을 주역 플랫폼입니다.</p>
+        <span class="link">준비중</span>
+      </a>
+
+      <a class="card" href="https://stunning-pony-8c1cb8.netlify.app/" target="_blank" rel="noopener" id="myeongli">
+        <div class="icon">🧭</div>
+        <h3>12운성</h3>
+        <p>사주 원국과 운의 흐름에서 12운성을 확인하는 학습 도구입니다.</p>
+        <span class="link">바로가기</span>
+      </a>
+
+      <a class="card" href="https://curious-seahorse-95600b.netlify.app/" target="_blank" rel="noopener">
+        <div class="icon">📊</div>
+        <h3>육친계산기</h3>
+        <p>천간·지지의 육친 관계를 빠르게 확인하는 명리학 도구입니다.</p>
+        <span class="link">바로가기</span>
+      </a>
+
+      <a class="card" href="#" id="tarot">
+        <div class="icon">🔮</div>
+        <h3>Daily Tarot Journal</h3>
+        <p>하루 한 장의 카드 의미를 기록하고 해석하는 타로 저널입니다.</p>
+        <span class="link">준비중</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="layout-3">
+    <div class="panel" id="project">
+      <h3>북진서원 프로젝트</h3>
+      <div class="list-item"><div class="badge">☯</div><div><div class="item-title">북진아이칭</div><div class="item-desc">오늘의 일진 · 척전법 · 매화역수 · 하락이수</div></div></div>
+      <div class="list-item"><div class="badge">🧭</div><div><div class="item-title">명리 도구</div><div class="item-desc">12운성 · 육친계산기 · 격국 학습 도구</div></div></div>
+      <div class="list-item"><div class="badge">🔮</div><div><div class="item-title">Daily Tarot Journal</div><div class="item-desc">카드 리딩과 하루 기록을 연결하는 저널</div></div></div>
+    </div>
+
+    <div class="panel" id="notes">
+      <h3>공부노트</h3>
+      <div class="list-item"><div class="badge">命</div><div><div class="item-title">명리학</div><div class="item-desc">십성, 격국, 용신, 대운 정리</div></div></div>
+      <div class="list-item"><div class="badge">易</div><div><div class="item-title">주역</div><div class="item-desc">64괘, 괘사, 효사, 점법 정리</div></div></div>
+      <div class="list-item"><div class="badge">書</div><div><div class="item-title">동양고전</div><div class="item-desc">고전 문장과 해석 기록</div></div></div>
+    </div>
+
+    <div class="panel">
+      <h3>최근 업데이트</h3>
+      <div class="list-item"><div class="badge">1</div><div><div class="item-title">홈페이지 틀 구성</div><div class="item-desc">메인 구조와 카드 영역 제작</div></div></div>
+      <div class="list-item"><div class="badge">2</div><div><div class="item-title">12운성 연결</div><div class="item-desc">Netlify 앱 링크 연결 완료</div></div></div>
+      <div class="list-item"><div class="badge">3</div><div><div class="item-title">육친계산기 연결</div><div class="item-desc">Netlify 앱 링크 연결 완료</div></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <strong>北辰書院 · 북진서원</strong><br>
+  배움과 지식으로 소통하는 공간<br>
+  명리 · 주역 · 타로 · 동양고전 연구
+</footer>
+
+</body>
+</html>
